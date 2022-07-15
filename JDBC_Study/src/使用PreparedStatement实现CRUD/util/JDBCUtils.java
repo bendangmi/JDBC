@@ -1,5 +1,7 @@
 package 使用PreparedStatement实现CRUD.util;
 
+import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
@@ -51,6 +53,8 @@ public class JDBCUtils {
             }
         }
     }
+
+    // 关闭资源操作
     public static void closeResource(Connection conn, Statement ps, ResultSet rs){
         if(conn != null){
             try {

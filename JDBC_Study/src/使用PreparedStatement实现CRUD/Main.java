@@ -119,11 +119,12 @@ public class Main {
             // 4.执行
             ps.execute();
 
-            // 5.资源的关闭
-            JDBCUtils.closeResource(conn, ps);
+
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
+            // 5.资源的关闭
             JDBCUtils.closeResource(conn, ps);
         }
     }
