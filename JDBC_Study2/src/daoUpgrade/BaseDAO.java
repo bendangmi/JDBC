@@ -26,7 +26,7 @@ public abstract class BaseDAO <T>{
         clazz = (Class<T>) typeArguments[0];
     }
 
-    public <T> T getValue(Connection conn, String sql, Object ...args) {
+    public <E> E getValue(Connection conn, String sql, Object ...args) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -41,7 +41,7 @@ public abstract class BaseDAO <T>{
             // 执行
             rs = ps.executeQuery();
             if(rs.next()){
-                return (T) rs.getObject(1);
+                return (E) rs.getObject(1);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
